@@ -23,6 +23,11 @@ namespace task_DEV_1
                 min = secondInputNumber;
                 max = firstInputNumber;
             }
+            else if (firstInputNumber == secondInputNumber)
+            {
+                min = firstInputNumber;
+                max = secondInputNumber;
+            }
 
             for (int i = min; i <= max; i++)
             {

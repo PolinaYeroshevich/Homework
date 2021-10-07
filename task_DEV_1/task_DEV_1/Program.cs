@@ -13,12 +13,12 @@ namespace task_DEV_1
             int min = 0;
             int max = 0;
 
-            if (firstInputNumber < secondInputNumber || firstInputNumber == secondInputNumber)
+            if (firstInputNumber <= secondInputNumber)
             {
                 min = firstInputNumber;
                 max = secondInputNumber;
             }
-            else if (firstInputNumber > secondInputNumber)
+            else 
             {
                 min = secondInputNumber;
                 max = firstInputNumber;

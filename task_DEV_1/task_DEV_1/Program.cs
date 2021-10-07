@@ -29,6 +29,7 @@ namespace task_DEV_1
                 {
                     Console.WriteLine($"Number {i} can't be divided on 2 or 5");
                 }
+
             }
             for (int i = firstInputNumber; i >= secondInputNumber; i--)
             {

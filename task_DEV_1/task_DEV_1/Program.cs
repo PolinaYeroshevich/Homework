@@ -10,28 +10,21 @@ namespace task_DEV_1
             int firstInputNumber = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the second number");
             int secondInputNumber = int.Parse(Console.ReadLine());
+            int min = 0;
+            int max = 0;
 
-            for (int i = firstInputNumber; i <= secondInputNumber; i++)
+            if (firstInputNumber < secondInputNumber)
             {
-                if (i % 2 == 0 && i % 5 == 0)
-                {
-                    Console.WriteLine("Tutti-Frutti");
-                }
-                else if (i % 2 == 0)
-                {
-                    Console.WriteLine("Tutti");
-                }
-                else if (i % 5 == 0)
-                {
-                    Console.WriteLine("Frutti");
-                }
-                else
-                {
-                    Console.WriteLine($"Number {i} can't be divided on 2 or 5");
-                }
-
+                min = firstInputNumber;
+                max = secondInputNumber;
             }
-            for (int i = firstInputNumber; i >= secondInputNumber; i--)
+            else if (firstInputNumber > secondInputNumber)
+            {
+                min = secondInputNumber;
+                max = firstInputNumber;
+            }
+
+            for (int i = min; i <= max; i++)
             {
                 if (i % 2 == 0 && i % 5 == 0)
                 {

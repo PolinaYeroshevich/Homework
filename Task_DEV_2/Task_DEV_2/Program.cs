@@ -9,7 +9,7 @@ namespace Task_DEV_2
             Console.WriteLine("Enter the size of the array :");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
 
-            if (arrayLength < 20)
+            if (arrayLength <= 20)
             {
                 int[] inputNumbers = new int[arrayLength];
 

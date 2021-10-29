@@ -6,6 +6,7 @@ namespace Task_DEV_3
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Enter the size of the array :");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
             if (arrayLength <= 5)
@@ -24,7 +25,6 @@ namespace Task_DEV_3
                     }
                 }
                 bool isPrimeNumber = true;
-
                 for (int i = 0; i < arrayLength; i++)
                 {
                     if (inputNumbers[i] == 1 || inputNumbers[i] == 2)
@@ -37,7 +37,7 @@ namespace Task_DEV_3
                         {
                             isPrimeNumber = false;
 
-                            Console.WriteLine($"{inputNumbers[i]} is not prime number");                          
+                            Console.WriteLine($"{inputNumbers[i]} is not prime number");
                         }
                         else
                         {

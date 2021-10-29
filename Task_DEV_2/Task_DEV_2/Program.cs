@@ -47,7 +47,7 @@ namespace Task_DEV_2
             }
             else
             {
-                Console.WriteLine("Array cannot be >= 20");
+                Console.WriteLine("Array cannot be > 20");
             }
         }
     }

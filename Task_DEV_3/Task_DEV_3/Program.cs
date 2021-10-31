@@ -30,19 +30,19 @@ namespace Task_DEV_3
                             break;
                         }
                     }
-                    if (isPrimeNumber == false)
+                    if (isPrimeNumber)
                     {
-                        Console.WriteLine($"{inputNumbers[i]} is not prime number");
+                        Console.WriteLine($"{inputNumbers[i]} is prime number");
                     }
                     else
                     {
-                        Console.WriteLine($"{inputNumbers[i]} is prime number");
+                        Console.WriteLine($"{inputNumbers[i]} is not prime number");
                     }
                 }
             }
             else
             {
-                Console.WriteLine("Array has exceeded the allowed value");
+                Console.WriteLine("Size array has exceeded the allowed value");
             }
         }
     }

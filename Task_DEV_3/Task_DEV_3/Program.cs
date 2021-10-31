@@ -11,17 +11,15 @@ namespace Task_DEV_3
             if (arrayLength <= 5)
             {
                 int[] inputNumbers = new int[arrayLength];
-
                 for (int i = 0; i < arrayLength; i++)
                 {
                     Console.WriteLine($"Enter an array element № {i}");
                     inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
                 }
-
                 bool isPrimeNumber = true;
-
                 for (int i = 0; i < arrayLength; i++)
                 {
+                    isPrimeNumber = true;
                     for (int j = 2; j < inputNumbers[i]; j++)
                     {
                         if (inputNumbers[i] % j == 0)

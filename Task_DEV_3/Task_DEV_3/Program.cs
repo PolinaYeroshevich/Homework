@@ -16,7 +16,7 @@ namespace Task_DEV_3
                     Console.WriteLine($"Enter an array element № {i}");
                     inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
                 }
-                bool isPrimeNumber = true;
+                bool isPrimeNumber;
                 for (int i = 0; i < arrayLength; i++)
                 {
                     isPrimeNumber = true;
@@ -40,7 +40,7 @@ namespace Task_DEV_3
             }
             else
             {
-                Console.WriteLine("Size array has exceeded the allowed value");
+                Console.WriteLine("Array length cannot exceed 5");
             }
         }
     }

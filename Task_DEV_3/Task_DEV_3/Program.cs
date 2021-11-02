@@ -4,6 +4,38 @@ namespace Task_DEV_3
 {
     class Program
     {
+        static void InputArrayElement(int[] inputNumbers, int arrayLength)
+        {
+            for (int i = 0; i < arrayLength; i++)
+            {
+                Console.WriteLine($"Enter an array element № {i}");
+                inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+        static void CheckingNumbersForPrime(int[] inputNumbers, int arrayLength)
+        {
+            bool isPrimeNumber;
+            for (int i = 0; i < arrayLength; i++)
+            {
+                isPrimeNumber = true;
+                for (int j = 2; j < inputNumbers[i]; j++)
+                {
+                    if (inputNumbers[i] % j == 0)
+                    {
+                        isPrimeNumber = false;
+                        break;
+                    }
+                }
+                if (isPrimeNumber)
+                {
+                    Console.WriteLine($"{inputNumbers[i]} is prime number");
+                }
+                else
+                {
+                    Console.WriteLine($"{inputNumbers[i]} is not prime number");
+                }
+            }
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the length of the array :");
@@ -11,32 +43,10 @@ namespace Task_DEV_3
             if (arrayLength <= 5)
             {
                 int[] inputNumbers = new int[arrayLength];
-                for (int i = 0; i < arrayLength; i++)
-                {
-                    Console.WriteLine($"Enter an array element № {i}");
-                    inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
-                }
-                bool isPrimeNumber;
-                for (int i = 0; i < arrayLength; i++)
-                {
-                    isPrimeNumber = true;
-                    for (int j = 2; j < inputNumbers[i]; j++)
-                    {
-                        if (inputNumbers[i] % j == 0)
-                        {
-                            isPrimeNumber = false;
-                            break;
-                        }
-                    }
-                    if (isPrimeNumber)
-                    {
-                        Console.WriteLine($"{inputNumbers[i]} is prime number");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{inputNumbers[i]} is not prime number");
-                    }
-                }
+
+                InputArrayElement(inputNumbers, arrayLength);
+
+                CheckingNumbersForPrime(inputNumbers, arrayLength);
             }
             else
             {

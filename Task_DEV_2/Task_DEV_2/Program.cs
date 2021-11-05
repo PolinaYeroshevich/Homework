@@ -52,7 +52,7 @@ namespace Task_DEV_2
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the size of the array :");
+            Console.WriteLine("Enter the length of the array :");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
 
             if (arrayLength <= 20)

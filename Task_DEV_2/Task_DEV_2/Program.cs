@@ -15,7 +15,7 @@ namespace Task_DEV_2
             return inputNumbers;
         }
 
-        static int SwapMinMaxElements(int[] inputNumbers, int arrayLength)
+        static int [] SwapMinMaxElements(int[] inputNumbers, int arrayLength)
         {
             int min = inputNumbers[0];
             int max = inputNumbers[0];
@@ -38,7 +38,7 @@ namespace Task_DEV_2
             inputNumbers[indexMin] = max;
             inputNumbers[indexMax] = min;
 
-            return inputNumbers[indexMin];
+            return inputNumbers;
         }
 
         static void PrintNumberArraryToConsole(int[] inputNumbers, int arrayLength)
@@ -59,7 +59,7 @@ namespace Task_DEV_2
             {
                 int[] inputNumbers = CreateNumbersArray(arrayLength);
                 PrintNumberArraryToConsole(inputNumbers, arrayLength);
-                SwapMinMaxElements(inputNumbers, arrayLength);
+                inputNumbers = SwapMinMaxElements(inputNumbers, arrayLength);
                 PrintNumberArraryToConsole(inputNumbers, arrayLength);
             }
             else

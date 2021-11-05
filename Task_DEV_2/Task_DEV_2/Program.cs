@@ -15,7 +15,7 @@ namespace Task_DEV_2
             return inputNumbers;
         }
 
-        static int [] SwapMinMaxElements(int[] inputNumbers, int arrayLength)
+        static int[] SwapMinMaxElements(int[] inputNumbers, int arrayLength)
         {
             int min = inputNumbers[0];
             int max = inputNumbers[0];
@@ -43,7 +43,6 @@ namespace Task_DEV_2
 
         static void PrintNumberArraryToConsole(int[] inputNumbers, int arrayLength)
         {
-
             for (int i = 0; i < arrayLength; i++)
             {
                 Console.WriteLine(inputNumbers[i]);

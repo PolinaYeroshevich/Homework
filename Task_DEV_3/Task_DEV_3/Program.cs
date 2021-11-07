@@ -4,49 +4,50 @@ namespace Task_DEV_3
 {
     class Program
     {
-        static void InputArrayElement(int[] inputNumbers, int arrayLength)
+        static int[] CreateNumbersArray(int arrayLength)
         {
+            int[] inputNumbers = new int[arrayLength];
             for (int i = 0; i < arrayLength; i++)
             {
                 Console.WriteLine($"Enter an array element № {i}");
                 inputNumbers[i] = Convert.ToInt32(Console.ReadLine());
             }
+            return inputNumbers;
         }
-        static void CheckingNumbersForPrime(int[] inputNumbers, int arrayLength)
+
+        static bool CheckNumbersForPrime(int number)
         {
-            bool isPrimeNumber;
-            for (int i = 0; i < arrayLength; i++)
+            bool isPrimeNumber = true;
+            for (int j = 2; j < number; j++)
             {
-                isPrimeNumber = true;
-                for (int j = 2; j < inputNumbers[i]; j++)
+                if (number % j == 0)
                 {
-                    if (inputNumbers[i] % j == 0)
-                    {
-                        isPrimeNumber = false;
-                        break;
-                    }
-                }
-                if (isPrimeNumber)
-                {
-                    Console.WriteLine($"{inputNumbers[i]} is prime number");
-                }
-                else
-                {
-                    Console.WriteLine($"{inputNumbers[i]} is not prime number");
+                    isPrimeNumber = false;
+                    break;
                 }
             }
+            return isPrimeNumber;
         }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the length of the array :");
             int arrayLength = Convert.ToInt32(Console.ReadLine());
             if (arrayLength <= 5)
             {
-                int[] inputNumbers = new int[arrayLength];
-
-                InputArrayElement(inputNumbers, arrayLength);
-
-                CheckingNumbersForPrime(inputNumbers, arrayLength);
+                int[] inputNumbers = CreateNumbersArray(arrayLength);
+                for (int i = 0; i < arrayLength; i++)
+                {
+                    bool isPrimeNumber = CheckNumbersForPrime(inputNumbers[i]);
+                    if (isPrimeNumber)
+                    {
+                        Console.WriteLine($"{inputNumbers[i]} is prime number");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{inputNumbers[i]} is not prime number");
+                    }
+                }
             }
             else
             {

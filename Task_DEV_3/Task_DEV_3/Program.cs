@@ -15,7 +15,7 @@ namespace Task_DEV_3
             return inputNumbers;
         }
 
-        static bool CheckNumbersForPrime(int number)
+        static bool CheckNumberForPrime(int number)
         {
             bool isPrimeNumber = true;
             for (int j = 2; j < number; j++)
@@ -38,9 +38,8 @@ namespace Task_DEV_3
                 int[] inputNumbers = CreateNumbersArray(arrayLength);
                 for (int i = 0; i < arrayLength; i++)
                 {
-                    bool isPrimeNumber = CheckNumbersForPrime(inputNumbers[i]);
-                    if (isPrimeNumber)
-                    {
+                    if (CheckNumberForPrime(inputNumbers[i]))
+                    { 
                         Console.WriteLine($"{inputNumbers[i]} is prime number");
                     }
                     else

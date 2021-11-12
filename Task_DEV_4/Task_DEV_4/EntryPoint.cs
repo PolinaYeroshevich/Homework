@@ -2,7 +2,7 @@
 
 namespace Task_DEV_4
 {
-    class Program
+    class EntryPoint
     {
         static void Main(string[] args)
         {

@@ -14,8 +14,7 @@ namespace Task_DEV_4
             Console.WriteLine($"The area of a rectangle is {rectangleArea}");
             double rectanglePerimetr = rectangle.CalculatePerimeter();
             Console.WriteLine($"The perimetr of a rectangle is {rectanglePerimetr}");
-            bool isSquare = rectangle.IsSquare();
-            if (isSquare == false)
+            if (rectangle.IsSquare())
             {
                 Console.WriteLine("This is rectangle");
             }

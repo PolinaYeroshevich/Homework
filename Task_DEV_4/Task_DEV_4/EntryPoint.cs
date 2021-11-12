@@ -12,8 +12,8 @@ namespace Task_DEV_4
             rectangle.SetRectangleParameters(length, width);
             double rectangleArea = rectangle.CalculateArea();
             Console.WriteLine($"The area of a rectangle is {rectangleArea}");
-            double rectanglePerimetr = rectangle.CalculatePerimeter();
-            Console.WriteLine($"The perimetr of a rectangle is {rectanglePerimetr}");
+            double rectanglePerimeter = rectangle.CalculatePerimeter();
+            Console.WriteLine($"The perimetr of a rectangle is {rectanglePerimeter}");
             if (rectangle.IsSquare())
             {
                 Console.WriteLine("This is rectangle");

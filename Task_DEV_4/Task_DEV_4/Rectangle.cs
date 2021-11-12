@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task_DEV_4
+﻿namespace Task_DEV_4
 {
     class Rectangle
     {

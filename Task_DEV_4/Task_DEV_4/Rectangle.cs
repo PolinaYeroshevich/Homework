@@ -18,30 +18,25 @@ namespace Task_DEV_4
             this.width = width;
         }
 
-        public void SettingFieldValues(double length, double width)
+        public void SetRectangleParameters(double length, double width)
         {
             this.length = length;
             this.width = width;
         }
 
-        public double CalculateTheArea()
+        public double CalculateArea()
         {
             return length * width;
         }
 
-        public double CalculateThePerimeter()
+        public double CalculatePerimeter()
         {
             return (length + width) * 2;
         }
 
-        public bool CheckForSquare()
+        public bool IsSquare()
         {
-            bool isNotSquare = true;
-            if (length == width)
-            {
-                isNotSquare = false;
-            }
-            return isNotSquare;
+            return length == width;
         }
     }
 }

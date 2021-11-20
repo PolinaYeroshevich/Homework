@@ -2,12 +2,10 @@
 {
     class Rectangle : Square
     {
-        private double Width { get; set; }
-        private double Length { get; set; }
+        public double Width { get; set; }
 
         public Rectangle(double length, double width) : base(length)
         {
-            Length = length;
             Width = width;
         }
 

@@ -18,9 +18,9 @@ namespace Task_DEV_4
             double rectanglePerimeter = rectangle.CalculatePerimeter();
             Console.WriteLine($"The perimeter of a rectangle is {rectanglePerimeter}");
 
-            Parallelogram parallelogram = new Parallelogram(7,5);
+            Parallelogram parallelogram = new Parallelogram(2, 3);
             double parallelogramArea = parallelogram.CalculateArea();
-            Console.WriteLine($"The area of a rectangle is {parallelogramArea}");
+            Console.WriteLine($"The area of a paralelogram is {parallelogramArea}");
         }
     }
 }

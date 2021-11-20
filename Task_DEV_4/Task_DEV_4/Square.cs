@@ -2,7 +2,7 @@
 {
     class Square
     {
-        private double Length { get; set; }
+        public double Length { get; set; }
 
         public Square(double length)
         {

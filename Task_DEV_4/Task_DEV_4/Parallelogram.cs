@@ -1,28 +1,34 @@
-﻿namespace Task_DEV_4
+﻿using System;
+namespace Task_DEV_4
 {
     class Parallelogram : Square
     {
-        private double Length { get; set; }
-        private double HeldHeight { get; set; }
-        private double Angle { get; set; }
-        private double Side { get; set; }
+        public double HeldHeight { get; set; }
+        public double Angle { get; set; }
+        public double Side { get; set; }
 
         public Parallelogram(double length, double heldHeight) : base(length)
         {
-            Length = length;
             HeldHeight = heldHeight;
         }
 
-        public Parallelogram(double length, double firstSide, double angle, double side) : base(length)
+        public Parallelogram(double length, double angle, double side) : base(length)
         {
-            Length = firstSide;
+            Length = length;
             Side = side;
             Angle = angle;
         }
 
-        public override double CalculateArea()
+        public override  double CalculateArea()
         {
-            return Length * HeldHeight;
+            if(HeldHeight > 0)
+            {
+                return Length * HeldHeight;
+            }
+            else 
+            {
+            return Length * Side * Math.Sin(Angle);
+            }
         }
     }
 }

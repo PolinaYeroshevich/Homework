@@ -14,7 +14,6 @@ namespace Task_DEV_4
 
         public Parallelogram(double length, double angle, double width) : base(length)
         {
-            Length = length;
             Width = width;
             Angle = angle;
         }
@@ -31,7 +30,7 @@ namespace Task_DEV_4
             }
             else
             {
-                throw new Exception("Custom messege");
+                throw new ArgumentOutOfRangeException();
             }
         }
     }

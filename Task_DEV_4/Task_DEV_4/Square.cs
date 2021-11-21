@@ -12,7 +12,7 @@ namespace Task_DEV_4
 
         public virtual double CalculateArea()
         {
-            return Math.Pow (Length, 2);
+            return Math.Pow(Length, 2);
         }
 
         public virtual double CalculatePerimeter()

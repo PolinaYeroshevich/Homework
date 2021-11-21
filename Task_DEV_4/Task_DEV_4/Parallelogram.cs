@@ -3,31 +3,35 @@ namespace Task_DEV_4
 {
     class Parallelogram : Square
     {
-        public double HeldHeight { get; set; }
+        public double Height { get; set; }
         public double Angle { get; set; }
-        public double Side { get; set; }
+        public double Width { get; set; }
 
-        public Parallelogram(double length, double heldHeight) : base(length)
+        public Parallelogram(double length, double height) : base(length)
         {
-            HeldHeight = heldHeight;
+            Height = height;
         }
 
-        public Parallelogram(double length, double angle, double side) : base(length)
+        public Parallelogram(double length, double angle, double width) : base(length)
         {
             Length = length;
-            Side = side;
+            Width = width;
             Angle = angle;
         }
 
-        public override  double CalculateArea()
+        public override double CalculateArea()
         {
-            if(HeldHeight > 0)
+            if (Height > 0 && Length > 0)
             {
-                return Length * HeldHeight;
+                return Length * Height;
             }
-            else 
+            else if (Length > 0 && Width > 0 && Angle > 0)
             {
-            return Length * Side * Math.Sin(Angle);
+                return Length * Width * Math.Sin(Angle);
+            }
+            else
+            {
+                throw new Exception("Custom messege");
             }
         }
     }

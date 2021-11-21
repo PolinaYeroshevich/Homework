@@ -1,4 +1,5 @@
-﻿namespace Task_DEV_4
+﻿using System;
+namespace Task_DEV_4
 {
     class Square
     {
@@ -11,12 +12,12 @@
 
         public virtual double CalculateArea()
         {
-            return Length * Length;
+            return Math.Pow (Length, 2);
         }
+
         public virtual double CalculatePerimeter()
         {
-            return (Length + Length) * 2;
+            return Length * 4;
         }
     }
 }
-

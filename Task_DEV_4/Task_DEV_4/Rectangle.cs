@@ -2,21 +2,21 @@
 {
     class Rectangle : Square
     {
-        public double Width { get; set; }
+        public double SideB { get; set; }
 
-        public Rectangle(double length, double width) : base(length)
+        public Rectangle(double sideA, double sideB) : base(sideA)
         {
-            Width = width;
+            SideB = sideB;
         }
 
         public override double CalculateArea()
         {
-            return Length * Width;
+            return SideA * SideB;
         }
 
         public override double CalculatePerimeter()
         {
-            return (Length + Width) * 2;
+            return (SideA + SideB) * 2;
         }
     }
 }

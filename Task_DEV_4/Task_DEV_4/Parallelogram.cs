@@ -1,36 +1,37 @@
 ﻿using System;
+
 namespace Task_DEV_4
 {
     class Parallelogram : Square
     {
-        public double Height { get; set; }
+        public double HeightA { get; set; }
         public double Angle { get; set; }
-        public double Width { get; set; }
+        public double SideB { get; set; }
 
-        public Parallelogram(double length, double height) : base(length)
+        public Parallelogram(double sideA, double heightA) : base(sideA)
         {
-            Height = height;
+            HeightA = heightA;
         }
 
-        public Parallelogram(double length, double angle, double width) : base(length)
+        public Parallelogram(double sideA, double angle, double sideB) : base(sideA)
         {
-            Width = width;
+            SideB = sideB;
             Angle = angle;
         }
 
         public override double CalculateArea()
         {
-            if (Height > 0 && Length > 0)
+            if (HeightA > 0 && SideA > 0)
             {
-                return Length * Height;
+                return SideA * HeightA;
             }
-            else if (Length > 0 && Width > 0 && Angle > 0)
+            else if (SideA > 0 && SideB > 0 && Angle > 0)
             {
-                return Length * Width * Math.Sin(Angle);
+                return SideA * SideB * Math.Sin(Angle);
             }
             else
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0");
             }
         }
     }

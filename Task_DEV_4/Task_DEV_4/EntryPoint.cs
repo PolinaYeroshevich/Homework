@@ -20,13 +20,13 @@ namespace Task_DEV_4
                 double rectanglePerimeter = rectangle.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a rectangle is {rectanglePerimeter}");
 
-                Parallelogram parallelogram = new Parallelogram(2, -3);
+                Parallelogram parallelogram = new Parallelogram(2, 3);
                 double parallelogramArea = parallelogram.CalculateArea();
                 Console.WriteLine($"The area of a paralelogram is {parallelogramArea}");
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException e)
             {
-                Console.WriteLine("Side cannot be less than 0");
+                Console.WriteLine(e.Message);
             }
         }
     }

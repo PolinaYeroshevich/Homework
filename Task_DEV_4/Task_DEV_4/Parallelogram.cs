@@ -2,37 +2,72 @@
 
 namespace Task_DEV_4
 {
-    class Parallelogram : Square
+    class Parallelogram : Figura
     {
-        public double HeightA { get; set; }
+        public double FirstSide { get; set; }
+        public double Height { get; set; }
         public double Angle { get; set; }
-        public double SideB { get; set; }
+        public double SecondSide { get; set; }
 
-        public Parallelogram(double sideA, double heightA) : base(sideA)
+        public override void CheckForExistance()
         {
-            HeightA = heightA;
+            if (Height > 0 && FirstSide > 0)
+            {
+
+            }
+            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
+            {
+
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+            }
+        }
+        public Parallelogram(double firstSide, double height, string name, string color) : base(color, name)
+        {
+            FirstSide = firstSide;
+            Height = height;
         }
 
-        public Parallelogram(double sideA, double angle, double sideB) : base(sideA)
+        public Parallelogram(double secondSide, double angle, double firstSide, string name, string color) : base(color, name)
         {
-            SideB = sideB;
+            SecondSide = secondSide;
+            FirstSide = firstSide;
             Angle = angle;
         }
 
         public override double CalculateArea()
         {
-            if (HeightA > 0 && SideA > 0)
+            if (Height > 0 && FirstSide > 0)
             {
-                return SideA * HeightA;
+                return FirstSide * Height;
             }
-            else if (SideA > 0 && SideB > 0 && Angle > 0)
+            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
             {
-                return SideA * SideB * Math.Sin(Angle);
+                return FirstSide * SecondSide * Math.Sin(Angle);
             }
             else
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0");
             }
+        }
+
+        public override double CalculatePerimeter()
+        {
+            if (FirstSide > 0 && SecondSide > 0)
+            {
+                return (FirstSide + SecondSide) * 2;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+            }
+        }
+
+        public override string GetFullInfo()
+        {
+            return $"Name : {Name}, Color : {Color}, Length of sides : {FirstSide} , {SecondSide}";
         }
     }
 }

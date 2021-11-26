@@ -2,23 +2,39 @@
 
 namespace Task_DEV_4
 {
-    class Square
+    class Square : Figura
     {
-        public double SideA { get; set; }
+        public double Side { get; set; }
 
-        public Square(double sideA)
+        public override void CheckForExistance()
         {
-            SideA = sideA;
+            if (Side > 0)
+            {
+
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+            }
         }
 
-        public virtual double CalculateArea()
+        public Square(double side, string color, string name) : base(color, name)
         {
-            return Math.Pow(SideA, 2);
+            Side = side;
         }
 
-        public virtual double CalculatePerimeter()
+        public override double CalculateArea()
         {
-            return SideA * 4;
+            return Math.Pow(Side, 2);
+        }
+
+        public override double CalculatePerimeter()
+        {
+            return Side * 4;
+        }
+        public override string GetFullInfo()
+        {
+            return $"Name : {Name}, Color : {Color},Length of side : {Side}";
         }
     }
 }

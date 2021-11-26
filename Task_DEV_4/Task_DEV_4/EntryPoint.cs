@@ -8,21 +8,58 @@ namespace Task_DEV_4
         {
             try
             {
-                Square square = new Square(5);
+                Triangle triangle = new Triangle(3, 4, 3, "Triangle", "green");
+                double triangleArea = triangle.CalculateArea();
+                Console.WriteLine($"The area of a triangle is {triangleArea}");
+                double trianglePerimeter = triangle.CalculatePerimeter();
+                Console.WriteLine($"The perimeter of a triangle is {trianglePerimeter}");
+                String fullInfoTriangle = triangle.GetFullInfo();
+                Console.WriteLine(fullInfoTriangle);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+                Square square = new Square(5, "Square", "red");
                 double squareArea = square.CalculateArea();
                 Console.WriteLine($"The area of a square is {squareArea}");
                 double squarePerimeter = square.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a square is {squarePerimeter}");
+                String fullInfoSquare = square.GetFullInfo();
+                Console.WriteLine(fullInfoSquare);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-                Rectangle rectangle = new Rectangle(4, 7);
-                double rectangleArea = rectangle.CalculateArea();
-                Console.WriteLine($"The area of a rectangle is {rectangleArea}");
-                double rectanglePerimeter = rectangle.CalculatePerimeter();
-                Console.WriteLine($"The perimeter of a rectangle is {rectanglePerimeter}");
-
-                Parallelogram parallelogram = new Parallelogram(2, 3);
+            try
+            {
+                Parallelogram parallelogram = new Parallelogram(9, 7, 5, "blue", "Parallelogram");
                 double parallelogramArea = parallelogram.CalculateArea();
                 Console.WriteLine($"The area of a paralelogram is {parallelogramArea}");
+                double parallelogramPerimeter = parallelogram.CalculatePerimeter();
+                Console.WriteLine($"The perimeter of a parallelogram is {parallelogramPerimeter}");
+                String fullInfoParallelogram = parallelogram.GetFullInfo();
+                Console.WriteLine(fullInfoParallelogram);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            try
+            {
+                Circle circle = new Circle(7, "Circle", "pink");
+                double circleArea = circle.CalculateArea();
+                Console.WriteLine($"The area of a circle is {circleArea}");
+                double circlePerimeter = circle.CalculatePerimeter();
+                Console.WriteLine($"The perimeter of a circle is {circlePerimeter}");
+                String fullInfoCircle = circle.GetFullInfo();
+                Console.WriteLine(fullInfoCircle);
             }
             catch (ArgumentOutOfRangeException e)
             {

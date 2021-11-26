@@ -12,14 +12,11 @@ namespace Task_DEV_4
 
         public override void CheckForExistance()
         {
-            if (BaseSide + FirstSide > SecondSide)
+            if (BaseSide + FirstSide < SecondSide)
             {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
-            else if (BaseSide > 0 && FirstSide > 0 && SecondSide > 0)
-            {
-
-            }
-            else
+            else if (BaseSide <= 0 && FirstSide <= 0 && SecondSide <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }

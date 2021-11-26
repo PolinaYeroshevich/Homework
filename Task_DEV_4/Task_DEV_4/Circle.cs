@@ -8,11 +8,7 @@ namespace Task_DEV_4
 
         public override void CheckForExistance()
         {
-            if (Radius > 0)
-            {
-
-            }
-            else
+            if (Radius <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }

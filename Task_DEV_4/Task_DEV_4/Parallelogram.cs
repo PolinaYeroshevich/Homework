@@ -11,15 +11,11 @@ namespace Task_DEV_4
 
         public override void CheckForExistance()
         {
-            if (Height > 0 && FirstSide > 0)
+            if (Height <= 0 && FirstSide <= 0)
             {
-
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
-            else if (FirstSide > 0 && SecondSide > 0 && Angle > 0)
-            {
-
-            }
-            else
+            else if (FirstSide <= 0 && SecondSide <= 0 && Angle <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }

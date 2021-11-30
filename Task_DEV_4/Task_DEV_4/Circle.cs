@@ -5,6 +5,7 @@ namespace Task_DEV_4
     class Circle : Figura
     {
         public double Radius { get; set; }
+        private const double PI = 3.14;
 
         public override void CheckForExistance()
         {
@@ -16,17 +17,22 @@ namespace Task_DEV_4
 
         public Circle(double radius, string name, string color) : base(name, color)
         {
-            Radius = radius;
+            if (Radius > 0)
+            {
+                Radius = radius;
+            }
         }
 
         public override double CalculatePerimeter()
         {
-            return Radius * 2 * 3.14;
+            return Radius * 2 * PI;
         }
+
         public override double CalculateArea()
         {
-            return Radius * Radius * 3.14;
+            return Math.Pow(Radius, 2) * PI;
         }
+
         public override string GetFullInfo()
         {
             return $"Name : {Name}, Color : {Color}, Radius circle : {Radius}";

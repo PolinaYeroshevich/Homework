@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Task_DEV_4
 {
@@ -16,7 +14,15 @@ namespace Task_DEV_4
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
-            else if (BaseSide <= 0 && FirstSide <= 0 && SecondSide <= 0)
+            else if (BaseSide + SecondSide < FirstSide)
+            {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+            }
+            else if (SecondSide + FirstSide < BaseSide)
+            {
+                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+            }
+            else if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
@@ -24,9 +30,12 @@ namespace Task_DEV_4
 
         public Triangle(double baseSide, double firstSide, double secondSide, string name, string color) : base(name, color)
         {
-            BaseSide = baseSide;
-            FirstSide = firstSide;
-            SecondSide = secondSide;
+            if (BaseSide > 0 || FirstSide > 0 || SecondSide > 0)
+            {
+                BaseSide = baseSide;
+                FirstSide = firstSide;
+                SecondSide = secondSide;
+            }
         }
 
         public override double CalculatePerimeter()

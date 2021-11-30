@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Task_DEV_4
+﻿namespace Task_DEV_4
 {
-   public abstract class Figura
+    public abstract class Figura
     {
         public string Name { get; set; }
         public string Color { get; set; }
@@ -14,6 +10,7 @@ namespace Task_DEV_4
             Name = name;
             Color = color;
         }
+
         public abstract void CheckForExistance();
 
         public abstract double CalculatePerimeter();
@@ -24,6 +21,5 @@ namespace Task_DEV_4
         {
             return $"{Name},{Color}";
         }
-
     }
 }

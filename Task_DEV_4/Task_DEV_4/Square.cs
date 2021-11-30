@@ -16,7 +16,10 @@ namespace Task_DEV_4
 
         public Square(double side, string color, string name) : base(color, name)
         {
-            Side = side;
+            if (Side > 0)
+            {
+                Side = side;
+            }
         }
 
         public override double CalculateArea()
@@ -28,6 +31,7 @@ namespace Task_DEV_4
         {
             return Side * 4;
         }
+
         public override string GetFullInfo()
         {
             return $"Name : {Name}, Color : {Color},Length of side : {Side}";

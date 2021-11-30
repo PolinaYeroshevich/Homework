@@ -11,26 +11,33 @@ namespace Task_DEV_4
 
         public override void CheckForExistance()
         {
-            if (Height <= 0 && FirstSide <= 0)
+            if (Height <= 0 || FirstSide <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
-            else if (FirstSide <= 0 && SecondSide <= 0 && Angle <= 0)
+            else if (FirstSide <= 0 || SecondSide <= 0 || Angle <= 0)
             {
                 throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
             }
         }
+
         public Parallelogram(double firstSide, double height, string name, string color) : base(color, name)
         {
-            FirstSide = firstSide;
-            Height = height;
+            if (Height > 0 || FirstSide > 0)
+            {
+                FirstSide = firstSide;
+                Height = height;
+            }
         }
 
         public Parallelogram(double secondSide, double angle, double firstSide, string name, string color) : base(color, name)
         {
-            SecondSide = secondSide;
-            FirstSide = firstSide;
-            Angle = angle;
+            if (FirstSide > 0 || SecondSide > 0 || Angle > 0)
+            {
+                SecondSide = secondSide;
+                FirstSide = firstSide;
+                Angle = angle;
+            }
         }
 
         public override double CalculateArea()

@@ -4,7 +4,8 @@ namespace Task_DEV_4
 {
     class Circle : Figure
     {
-        private const string errorMessage = "Radius cannot be less than 0.";
+        private const string ERROR_MESSAGE = "Radius cannot be less equals than 0.";
+
         public double Radius { get; set; }
 
         public Circle(string color, string name, double radius) : base(color, name)
@@ -27,7 +28,7 @@ namespace Task_DEV_4
         {
             if (Radius <= 0)
             {
-                throw new ArgumentOutOfRangeException(errorMessage);
+                throw new ArgumentOutOfRangeException(ERROR_MESSAGE);
             }
         }
 

@@ -4,7 +4,8 @@ namespace Task_DEV_4
 {
     class Parallelogram : Figure
     {
-        private const string errorMessage = "Side cannot be less than 0.";
+        private const string ERROR_MESSAGE = "Side or angle cannot be less equals than 0.";
+
         public double Angle { get; set; }
         public double FirstSide { get; set; }
         public double SecondSide { get; set; }
@@ -14,6 +15,7 @@ namespace Task_DEV_4
             SecondSide = secondSide;
             FirstSide = firstSide;
             Angle = angle;
+            CheckForExistance();
         }
 
         public override double CalculateArea()
@@ -24,7 +26,7 @@ namespace Task_DEV_4
             }
             else
             {
-                throw new ArgumentOutOfRangeException(errorMessage);
+                throw new ArgumentOutOfRangeException(ERROR_MESSAGE);
             }
         }
 
@@ -50,7 +52,7 @@ namespace Task_DEV_4
 
         public override string GetFullInfo()
         {
-            return $"Name : {Name}, Color : {Color}, Length of sides : {FirstSide} , {SecondSide}";
+            return $"Name : {Name}, Color : {Color}, Length of sides : {FirstSide}, {SecondSide}, {Angle}";
         }
     }
 }

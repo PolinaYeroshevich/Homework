@@ -4,7 +4,8 @@ namespace Task_DEV_4
 {
     class Square : Figure
     {
-        private const string errorMessage = "Side cannot be less than 0.";
+        private const string ERROR_MESSAGE = "Side cannot be less equals than 0.";
+
         public double Side { get; set; }
 
         public Square(string color, string name, double side) : base(color, name)
@@ -27,13 +28,13 @@ namespace Task_DEV_4
         {
             if (Side <= 0)
             {
-                throw new ArgumentOutOfRangeException(errorMessage);
+                throw new ArgumentOutOfRangeException(ERROR_MESSAGE);
             }
         }
 
         public override string GetFullInfo()
         {
-            return $"Name : {Name}, Color : {Color},Length of side : {Side}";
+            return $"Name : {Name}, Color : {Color}, Length of side : {Side}";
         }
     }
 }

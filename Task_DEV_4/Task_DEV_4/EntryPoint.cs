@@ -8,7 +8,7 @@ namespace Task_DEV_4
         {
             try
             {
-                Triangle triangle = new Triangle("Green", "Triangle", 3, 4, 15);
+                Triangle triangle = new Triangle("Green", "Triangle", 3, 4, 5);
                 double triangleArea = triangle.CalculateArea();
                 Console.WriteLine($"The area of a triangle is {triangleArea}");
                 double trianglePerimeter = triangle.CalculatePerimeter();

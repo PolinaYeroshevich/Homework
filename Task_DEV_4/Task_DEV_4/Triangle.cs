@@ -4,7 +4,9 @@ namespace Task_DEV_4
 {
     class Triangle : Figure
     {
-        private const string errorMessage = "Side cannot be less than 0.";
+        private const string ERROR_MESSAGE = "Side cannot be less equals than 0.";
+        private const string ERROR_MESSAGE2 = "The sum of the two sides cannot be less than the third side.";
+
         public double BaseSide { get; set; }
         public double FirstSide { get; set; }
         public double SecondSide { get; set; }
@@ -21,7 +23,8 @@ namespace Task_DEV_4
         {
             double perimeter = BaseSide + FirstSide + SecondSide;
             double semiPerimeter = perimeter / 2;
-            return Math.Sqrt(semiPerimeter * (semiPerimeter - BaseSide) * (semiPerimeter - FirstSide) * (semiPerimeter - SecondSide));
+            return Math.Sqrt(semiPerimeter * (semiPerimeter - BaseSide) *
+                (semiPerimeter - FirstSide) * (semiPerimeter - SecondSide));
         }
 
         public override double CalculatePerimeter()
@@ -31,13 +34,14 @@ namespace Task_DEV_4
 
         public override void CheckForExistance()
         {
-            if (BaseSide + FirstSide < SecondSide || BaseSide + SecondSide < FirstSide || SecondSide + FirstSide < BaseSide)
+            if (BaseSide + FirstSide < SecondSide || BaseSide + SecondSide < FirstSide || 
+                SecondSide + FirstSide < BaseSide)
             {
-                throw new ArgumentOutOfRangeException("The sum of the two sides cannot be less than the third side.");
+                throw new ArgumentOutOfRangeException(ERROR_MESSAGE2);
             }
             else if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {
-                throw new ArgumentOutOfRangeException(errorMessage);
+                throw new ArgumentOutOfRangeException(ERROR_MESSAGE);
             }
         }
 

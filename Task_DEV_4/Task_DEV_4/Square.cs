@@ -2,24 +2,15 @@
 
 namespace Task_DEV_4
 {
-    class Square : Figura
+    class Square : Figure
     {
+        private const string errorMessage = "Side cannot be less than 0.";
         public double Side { get; set; }
 
-        public override void CheckForExistance()
+        public Square(string color, string name, double side) : base(color, name)
         {
-            if (Side <= 0)
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
-            }
-        }
-
-        public Square(double side, string color, string name) : base(color, name)
-        {
-            if (Side > 0)
-            {
-                Side = side;
-            }
+            Side = side;
+            CheckForExistance();
         }
 
         public override double CalculateArea()
@@ -30,6 +21,14 @@ namespace Task_DEV_4
         public override double CalculatePerimeter()
         {
             return Side * 4;
+        }
+
+        public override void CheckForExistance()
+        {
+            if (Side <= 0)
+            {
+                throw new ArgumentOutOfRangeException(errorMessage);
+            }
         }
 
         public override string GetFullInfo()

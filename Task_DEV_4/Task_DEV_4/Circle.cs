@@ -2,35 +2,33 @@
 
 namespace Task_DEV_4
 {
-    class Circle : Figura
+    class Circle : Figure
     {
+        private const string errorMessage = "Radius cannot be less than 0.";
         public double Radius { get; set; }
-        private const double PI = 3.14;
+
+        public Circle(string color, string name, double radius) : base(color, name)
+        {
+            Radius = radius;
+            CheckForExistance(); 
+        }
+
+        public override double CalculateArea()
+        {
+            return Math.Pow(Radius, 2) * Math.PI;
+        }
+
+        public override double CalculatePerimeter()
+        {
+            return Radius * 2 * Math.PI;
+        }
 
         public override void CheckForExistance()
         {
             if (Radius <= 0)
             {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
+                throw new ArgumentOutOfRangeException(errorMessage);
             }
-        }
-
-        public Circle(double radius, string name, string color) : base(name, color)
-        {
-            if (Radius > 0)
-            {
-                Radius = radius;
-            }
-        }
-
-        public override double CalculatePerimeter()
-        {
-            return Radius * 2 * PI;
-        }
-
-        public override double CalculateArea()
-        {
-            return Math.Pow(Radius, 2) * PI;
         }
 
         public override string GetFullInfo()

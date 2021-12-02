@@ -2,40 +2,26 @@
 
 namespace Task_DEV_4
 {
-    class Triangle : Figura
+    class Triangle : Figure
     {
+        private const string errorMessage = "Side cannot be less than 0.";
         public double BaseSide { get; set; }
         public double FirstSide { get; set; }
         public double SecondSide { get; set; }
 
-        public override void CheckForExistance()
+        public Triangle(string color, string name, double baseSide, double firstSide, double secondSide) : base(color, name)
         {
-            if (BaseSide + FirstSide < SecondSide)
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
-            }
-            else if (BaseSide + SecondSide < FirstSide)
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
-            }
-            else if (SecondSide + FirstSide < BaseSide)
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
-            }
-            else if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0.");
-            }
+            BaseSide = baseSide;
+            FirstSide = firstSide;
+            SecondSide = secondSide;
+            CheckForExistance();
         }
 
-        public Triangle(double baseSide, double firstSide, double secondSide, string name, string color) : base(name, color)
+        public override double CalculateArea()
         {
-            if (BaseSide > 0 || FirstSide > 0 || SecondSide > 0)
-            {
-                BaseSide = baseSide;
-                FirstSide = firstSide;
-                SecondSide = secondSide;
-            }
+            double perimeter = BaseSide + FirstSide + SecondSide;
+            double semiPerimeter = perimeter / 2;
+            return Math.Sqrt(semiPerimeter * (semiPerimeter - BaseSide) * (semiPerimeter - FirstSide) * (semiPerimeter - SecondSide));
         }
 
         public override double CalculatePerimeter()
@@ -43,11 +29,16 @@ namespace Task_DEV_4
             return BaseSide + FirstSide + SecondSide;
         }
 
-        public override double CalculateArea()
+        public override void CheckForExistance()
         {
-            double a = BaseSide + FirstSide + SecondSide;
-            double b = a / 2;
-            return Math.Sqrt(b * (b - BaseSide) * (b - FirstSide) * (b - SecondSide));
+            if (BaseSide + FirstSide < SecondSide || BaseSide + SecondSide < FirstSide || SecondSide + FirstSide < BaseSide)
+            {
+                throw new ArgumentOutOfRangeException("The sum of the two sides cannot be less than the third side.");
+            }
+            else if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
+            {
+                throw new ArgumentOutOfRangeException(errorMessage);
+            }
         }
 
         public override string GetFullInfo()

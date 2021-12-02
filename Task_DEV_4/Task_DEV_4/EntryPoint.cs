@@ -8,7 +8,7 @@ namespace Task_DEV_4
         {
             try
             {
-                Triangle triangle = new Triangle(3, 4, 3, "Triangle", "green");
+                Triangle triangle = new Triangle("Green", "Triangle", 3, 4, 15);
                 double triangleArea = triangle.CalculateArea();
                 Console.WriteLine($"The area of a triangle is {triangleArea}");
                 double trianglePerimeter = triangle.CalculatePerimeter();
@@ -16,7 +16,7 @@ namespace Task_DEV_4
                 String fullInfoTriangle = triangle.GetFullInfo();
                 Console.WriteLine(fullInfoTriangle);
 
-                Square square = new Square(5, "Square", "red");
+                Square square = new Square("Red", "Square", 5);
                 double squareArea = square.CalculateArea();
                 Console.WriteLine($"The area of a square is {squareArea}");
                 double squarePerimeter = square.CalculatePerimeter();
@@ -24,7 +24,7 @@ namespace Task_DEV_4
                 String fullInfoSquare = square.GetFullInfo();
                 Console.WriteLine(fullInfoSquare);
 
-                Parallelogram parallelogram = new Parallelogram(9, 7, 5, "blue", "Parallelogram");
+                Parallelogram parallelogram = new Parallelogram("Blue", "Parallelogram", 9, 7, 5);
                 double parallelogramArea = parallelogram.CalculateArea();
                 Console.WriteLine($"The area of a paralelogram is {parallelogramArea}");
                 double parallelogramPerimeter = parallelogram.CalculatePerimeter();
@@ -32,7 +32,7 @@ namespace Task_DEV_4
                 String fullInfoParallelogram = parallelogram.GetFullInfo();
                 Console.WriteLine(fullInfoParallelogram);
 
-                Circle circle = new Circle(7, "Circle", "pink");
+                Circle circle = new Circle("Pink", "Circle", 7);
                 double circleArea = circle.CalculateArea();
                 Console.WriteLine($"The area of a circle is {circleArea}");
                 double circlePerimeter = circle.CalculatePerimeter();

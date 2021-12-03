@@ -5,7 +5,7 @@ namespace Task_DEV_4
     class Triangle : Figure
     {
         private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal than 0.";
-        private const string TRIANGLE_EXISTANCE_ERROR_MESSAGE = "The sum of the two sides " +
+        private const string TRIANGLE_EXISTENCE_ERROR_MESSAGE = "The sum of the two sides " +
             "cannot be less than the third side.";
 
         public double BaseSide { get; set; }

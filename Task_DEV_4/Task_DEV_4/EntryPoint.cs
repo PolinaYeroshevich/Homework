@@ -13,7 +13,7 @@ namespace Task_DEV_4
                 Console.WriteLine($"The area of a triangle is {triangleArea}");
                 double trianglePerimeter = triangle.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a triangle is {trianglePerimeter}");
-                String fullInfoTriangle = triangle.GetFullInfo();
+                string fullInfoTriangle = triangle.GetFullInfo();
                 Console.WriteLine(fullInfoTriangle);
 
                 Square square = new Square("Red", "Square", 5);
@@ -21,15 +21,15 @@ namespace Task_DEV_4
                 Console.WriteLine($"The area of a square is {squareArea}");
                 double squarePerimeter = square.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a square is {squarePerimeter}");
-                String fullInfoSquare = square.GetFullInfo();
+                string fullInfoSquare = square.GetFullInfo();
                 Console.WriteLine(fullInfoSquare);
 
                 Parallelogram parallelogram = new Parallelogram("Blue", "Parallelogram", 9, 7, 5);
                 double parallelogramArea = parallelogram.CalculateArea();
-                Console.WriteLine($"The area of a paralelogram is {parallelogramArea}");
+                Console.WriteLine($"The area of a parallelogram is {parallelogramArea}");
                 double parallelogramPerimeter = parallelogram.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a parallelogram is {parallelogramPerimeter}");
-                String fullInfoParallelogram = parallelogram.GetFullInfo();
+                string fullInfoParallelogram = parallelogram.GetFullInfo();
                 Console.WriteLine(fullInfoParallelogram);
 
                 Circle circle = new Circle("Pink", "Circle", 7);
@@ -37,7 +37,7 @@ namespace Task_DEV_4
                 Console.WriteLine($"The area of a circle is {circleArea}");
                 double circlePerimeter = circle.CalculatePerimeter();
                 Console.WriteLine($"The perimeter of a circle is {circlePerimeter}");
-                String fullInfoCircle = circle.GetFullInfo();
+                string fullInfoCircle = circle.GetFullInfo();
                 Console.WriteLine(fullInfoCircle);
             }
             catch (ArgumentOutOfRangeException e)

@@ -4,8 +4,8 @@ namespace Task_DEV_4
 {
     class Triangle : Figure
     {
-        private const string MESSAGE_ERROR_FIRST = "Side cannot be less or equals than 0.";
-        private const string MESSAGE_ERROR_SECOND = "The sum of the two sides " +
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side cannot be less or equal than 0.";
+        private const string TRIANGLE_EXISTANCE_ERROR_MESSAGE = "The sum of the two sides " +
             "cannot be less than the third side.";
 
         public double BaseSide { get; set; }
@@ -18,7 +18,7 @@ namespace Task_DEV_4
             BaseSide = baseSide;
             FirstSide = firstSide;
             SecondSide = secondSide;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculateArea()
@@ -34,16 +34,16 @@ namespace Task_DEV_4
             return BaseSide + FirstSide + SecondSide;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (BaseSide <= 0 || FirstSide <= 0 || SecondSide <= 0)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR_SECOND);
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
             else if (BaseSide + FirstSide < SecondSide || BaseSide + SecondSide < FirstSide ||
                 SecondSide + FirstSide < BaseSide)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR_FIRST);
+                throw new ArgumentOutOfRangeException(TRIANGLE_EXISTANCE_ERROR_MESSAGE);
             }
         }
 

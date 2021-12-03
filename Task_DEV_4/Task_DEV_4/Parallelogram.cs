@@ -4,7 +4,7 @@ namespace Task_DEV_4
 {
     class Parallelogram : Figure
     {
-        private const string MESSAGE_ERROR_FIRST = "Side or angle cannot be less or equals than 0.";
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side or angle cannot be less or equal than 0.";
 
         public double Angle { get; set; }
         public double FirstSide { get; set; }
@@ -16,7 +16,7 @@ namespace Task_DEV_4
             SecondSide = secondSide;
             FirstSide = firstSide;
             Angle = angle;
-            CheckForExistance();
+            CheckForExistence();
         }
 
         public override double CalculateArea()
@@ -29,11 +29,11 @@ namespace Task_DEV_4
             return (FirstSide + SecondSide) * 2;
         }
 
-        public override void CheckForExistance()
+        public override void CheckForExistence()
         {
             if (FirstSide <= 0 || SecondSide <= 0 || Angle <= 0)
             {
-                throw new ArgumentOutOfRangeException(MESSAGE_ERROR_FIRST);
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
         }
 

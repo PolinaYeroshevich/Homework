@@ -15,7 +15,7 @@
 
         public abstract double CalculatePerimeter();
 
-        public abstract void CheckForExistance();
+        public abstract void CheckForExistence();
 
         public virtual string GetFullInfo()
         {

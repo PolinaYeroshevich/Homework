@@ -2,37 +2,45 @@
 
 namespace Task_DEV_4
 {
-    class Parallelogram : Square
+    class Parallelogram : Figure
     {
-        public double HeightA { get; set; }
+        private const string INVALID_RANGE_ERROR_MESSAGE = "Side or angle cannot be less or equal than 0.";
+
         public double Angle { get; set; }
-        public double SideB { get; set; }
+        public double FirstSide { get; set; }
+        public double SecondSide { get; set; }
 
-        public Parallelogram(double sideA, double heightA) : base(sideA)
+        public Parallelogram(string color, string name, double secondSide,
+            double angle, double firstSide) : base(color, name)
         {
-            HeightA = heightA;
-        }
-
-        public Parallelogram(double sideA, double angle, double sideB) : base(sideA)
-        {
-            SideB = sideB;
+            SecondSide = secondSide;
+            FirstSide = firstSide;
             Angle = angle;
+            CheckForExistence();
         }
 
         public override double CalculateArea()
         {
-            if (HeightA > 0 && SideA > 0)
+            return FirstSide * SecondSide * Math.Sin(Angle);
+        }
+
+        public override double CalculatePerimeter()
+        {
+            return (FirstSide + SecondSide) * 2;
+        }
+
+        public override void CheckForExistence()
+        {
+            if (FirstSide <= 0 || SecondSide <= 0 || Angle <= 0)
             {
-                return SideA * HeightA;
+                throw new ArgumentOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
-            else if (SideA > 0 && SideB > 0 && Angle > 0)
-            {
-                return SideA * SideB * Math.Sin(Angle);
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException("Side cannot be less than 0");
-            }
+        }
+
+        public override string GetFullInfo()
+        {
+            return $"Name : {Name}, Color : {Color}," +
+                $" Length of sides : {FirstSide}, {SecondSide}, {Angle}";
         }
     }
 }

@@ -20,6 +20,11 @@ namespace task_DEV_5
             char symbol;
             while ((symbol = (char)fstream.ReadByte()) != '\n')
             {
+                if (fstream.Length == fstream.Position)
+                {
+                    break;
+                }
+
                 builder.Append(symbol);
             }
             return builder.ToString();
@@ -38,7 +43,6 @@ namespace task_DEV_5
                     while (fstream.Length != fstream.Position)
                     {
                         string secondString = ReadLine();
-
                         if (String.Compare(firstString, secondString) > 0)
                         {
                             var temp = firstString;

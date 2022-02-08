@@ -6,23 +6,23 @@ namespace task_DEV_5
     {
         static void Main(string[] args)
         {
+            string fileName = args[0];
+            int number = int.Parse(args[1]);
             try
             {
                 try
                 {
-                    Console.WriteLine("Enter the number of lines");
-                    int number = int.Parse(Console.ReadLine());
-                    FileGeneration fileGeneration = new FileGeneration(@"D:\git\Homework\Task_DEV_5\Text.txt", number);
+                    FileGeneration fileGeneration = new FileGeneration(Path.GetFullPath(@"..\\..\\" + fileName), number);
                     fileGeneration.WriteText();
                 }
                 catch (ArgumentOutOfRangeException e)
                 {
                     Console.WriteLine(e.Message);
                 }
-                FirstTextSorter firstTextSorter = new FirstTextSorter(@"D:\git\Homework\Task_DEV_5\Text1.txt");
+                FirstTextSorter firstTextSorter = new FirstTextSorter(Path.GetFullPath(@"..\\..\\" + fileName));
                 firstTextSorter.SortText();
 
-                SecondTextSort secondTextSort = new SecondTextSort(@"D:\git\Homework\Task_DEV_5\Text2.txt");
+                SecondTextSort secondTextSort = new SecondTextSort(Path.GetFullPath(@"..\\..\\" + fileName));
                 secondTextSort.SortText();
             }
             catch (DirectoryNotFoundException)

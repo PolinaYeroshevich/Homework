@@ -1,7 +1,8 @@
 {
   "profiles": {
     "Task_DEV_5": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "Text1.txt  5"
     }
   }
 }

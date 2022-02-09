@@ -7,23 +7,23 @@ namespace task_DEV_5
         static void Main(string[] args)
         {
             string fileName = args[0];
-            int number = int.Parse(args[1]);
+            int numberOfLines = int.Parse(args[1]);
             try
             {
-                try
-                {
-                    FileGeneration fileGeneration = new FileGeneration(Path.GetFullPath(@"..\\..\\" + fileName), number);
-                    fileGeneration.WriteText();
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-                FirstTextSorter firstTextSorter = new FirstTextSorter(Path.GetFullPath(@"..\\..\\" + fileName));
-                firstTextSorter.SortText();
 
-                SecondTextSort secondTextSort = new SecondTextSort(Path.GetFullPath(@"..\\..\\" + fileName));
-                secondTextSort.SortText();
+                BetteGenerator fileGeneration = new BetteGenerator(Path.GetFullPath(@"..\\..\\" + fileName), numberOfLines);
+                fileGeneration.GenerateText();
+
+
+                SorterArrayOfStrings firstTextSorter = new SorterArrayOfStrings(Path.GetFullPath(@"..\\..\\" + fileName));
+                firstTextSorter.Sort();
+
+                SorterAFileLineByLine secondTextSort = new SorterAFileLineByLine(Path.GetFullPath(@"..\\..\\" + fileName));
+                secondTextSort.Sort();
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
             }
             catch (DirectoryNotFoundException)
             {

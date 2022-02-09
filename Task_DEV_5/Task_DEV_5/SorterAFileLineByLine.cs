@@ -14,6 +14,13 @@ namespace task_DEV_5
             this.path = path;
         }
 
+        private void ChangeValues(string firstString, string secondString)
+        {
+            var temp = firstString;
+            firstString = secondString;
+            secondString = temp;
+        }
+
         private string ReadLine()
         {
             StringBuilder builder = new StringBuilder();
@@ -53,13 +60,6 @@ namespace task_DEV_5
                 }
                 while (sort);
             }
-        }
-
-        private void ChangeValues(string firstString, string secondString)
-        {
-            var temp = firstString;
-            firstString = secondString;
-            secondString = temp;
         }
 
         private void WriteSortText(string firstString, string secondString)

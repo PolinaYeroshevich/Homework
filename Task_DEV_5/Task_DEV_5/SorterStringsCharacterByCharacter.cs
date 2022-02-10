@@ -47,7 +47,7 @@ namespace task_DEV_5
                     }
                 }
                 while (sorts);
-            }
+            } 
         }
 
         private void WriteSortText(string firstString, string secondString)

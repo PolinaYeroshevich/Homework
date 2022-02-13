@@ -4,12 +4,12 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class SorterStringsCharacterByCharacter
+    class SorterWithFileStream
     {
         private string path;
         public FileStream fstream;
 
-        public SorterStringsCharacterByCharacter(string path)
+        public SorterWithFileStream(string path)
         {
             this.path = path;
         }
@@ -29,34 +29,34 @@ namespace task_DEV_5
         {
             using (fstream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
             {
-                bool sorts = true;
+                bool isSorts = true;
                 do
                 {
                     fstream.Seek(0, SeekOrigin.Begin);
                     string firstString = ReadLine();
-                    sorts = false;
+                    isSorts = false;
                     while (fstream.Length != fstream.Position)
                     {
                         string secondString = ReadLine();
                         if (String.Compare(firstString, secondString) > 0)
                         {
-                            WriteSortText(firstString, secondString);
-                            sorts = true;
+                            WriteSortedRows(firstString, secondString);
+                            isSorts = true;
                         }
                         firstString = secondString;
                     }
                 }
-                while (sorts);
+                while (isSorts);
             } 
         }
 
-        private void WriteSortText(string firstString, string secondString)
+        private void WriteSortedRows(string firstString, string secondString)
         {
-            byte[] firstLine = Encoding.Default.GetBytes(firstString + '\n');
-            byte[] secondLine = Encoding.Default.GetBytes(secondString + '\n');
-            fstream.Seek(-(firstLine.Length + secondLine.Length), SeekOrigin.Current);
-            fstream.Write(secondLine, 0, secondLine.Length);
-            fstream.Write(firstLine, 0, firstLine.Length);
+            byte[] firstLineByte = Encoding.Default.GetBytes(firstString + '\n');
+            byte[] secondLineByte = Encoding.Default.GetBytes(secondString + '\n');
+            fstream.Seek(-(firstLineByte.Length + secondLineByte.Length), SeekOrigin.Current);
+            fstream.Write(secondLineByte, 0, secondLineByte.Length);
+            fstream.Write(firstLineByte, 0, firstLineByte.Length);
         }
     }
 }

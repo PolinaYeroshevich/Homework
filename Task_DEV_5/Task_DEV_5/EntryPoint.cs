@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
 
 namespace task_DEV_5
 {
@@ -11,20 +12,20 @@ namespace task_DEV_5
             {
                 string fileName = args[0];
                 int numberOfLines = int.Parse(args[1]);
-
-                FileGenerator fileGenerator = new FileGenerator(Path.GetFullPath(@"..\\..\\" + fileName), numberOfLines);
+                string path = Path.GetFullPath(@"..\\..\\" + fileName);
+      
+                FileGenerator fileGenerator = new FileGenerator(path, numberOfLines);
                 fileGenerator.Generate();
 
-                SorterArraySort sorterArraySort = new SorterArraySort(Path.GetFullPath(@"..\\..\\" + fileName));
-                sorterArraySort.Sort();
+                Sorter sorter = new Sorter(path);
+                sorter.Sort();
 
-                SorterWithFileStream sorterWithFileStream = new SorterWithFileStream(Path.GetFullPath(@"..\\..\\" + fileName));
-                sorterWithFileStream.Sort();
+                BubbleSorter bubbleSorter = new BubbleSorter(path);
+                bubbleSorter.Sort();         
             }
             catch (ArgumentOutOfRangeException e)
             {
                 Console.WriteLine(e.Message);
-
             }
             catch (FileNotFoundException)
             {

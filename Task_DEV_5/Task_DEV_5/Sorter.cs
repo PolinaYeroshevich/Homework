@@ -3,11 +3,11 @@ using System.IO;
 
 namespace task_DEV_5
 {
-    class SorterArraySort
+    class Sorter
     {
         private string path;
 
-        public SorterArraySort(string path)
+        public Sorter(string path)
         {
             this.path = path;
         }

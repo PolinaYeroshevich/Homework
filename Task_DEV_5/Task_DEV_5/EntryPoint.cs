@@ -13,7 +13,7 @@ namespace task_DEV_5
                 string fileName = args[0];
                 int numberOfLines = int.Parse(args[1]);
                 string path = Path.GetFullPath(@"..\\..\\" + fileName);
-      
+
                 FileGenerator fileGenerator = new FileGenerator(path, numberOfLines);
                 fileGenerator.Generate();
 
@@ -21,7 +21,7 @@ namespace task_DEV_5
                 sorter.Sort();
 
                 BubbleSorter bubbleSorter = new BubbleSorter(path);
-                bubbleSorter.Sort();         
+                bubbleSorter.Sort();
             }
             catch (ArgumentOutOfRangeException e)
             {

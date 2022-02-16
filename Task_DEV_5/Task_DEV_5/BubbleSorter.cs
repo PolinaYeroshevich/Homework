@@ -18,8 +18,12 @@ namespace task_DEV_5
         {
             StringBuilder builder = new StringBuilder();
             char symbol;
-            while ((symbol = (char)fstream.ReadByte()) != '\n' || fstream.Length != fstream.Position)
+            while ((symbol = (char)fstream.ReadByte()) != '\n')
             {
+                if(fstream.Length == fstream.Position)
+                {
+                    break;
+                }
                 builder.Append(symbol);
             }
             return builder.ToString();
@@ -43,7 +47,10 @@ namespace task_DEV_5
                             WriteSortedRows(firstString, secondString);
                             needSorting = true;
                         }
-                        firstString = secondString;
+                        else
+                        {
+                            firstString = secondString;
+                        }
                     }
                 }
                 while (needSorting);

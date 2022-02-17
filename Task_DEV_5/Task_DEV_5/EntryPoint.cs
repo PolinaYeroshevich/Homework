@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Diagnostics;
 
 namespace task_DEV_5
 {
@@ -17,7 +16,7 @@ namespace task_DEV_5
                 FileGenerator fileGenerator = new FileGenerator(path, numberOfLines);
                 fileGenerator.Generate();
 
-                Sorter sorter = new Sorter(path);
+                Sorter sorter = new Sorter(Path.GetFullPath(@"..\\..\\" + "text0.txt"));
                 sorter.Sort();
 
                 BubbleSorter bubbleSorter = new BubbleSorter(path);

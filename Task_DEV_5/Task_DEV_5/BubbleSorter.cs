@@ -14,21 +14,6 @@ namespace task_DEV_5
             this.path = path;
         }
 
-        private string ReadLine()
-        {
-            StringBuilder builder = new StringBuilder();
-            char symbol;
-            while ((symbol = (char)fstream.ReadByte()) != '\n')
-            {
-                if(fstream.Length == fstream.Position)
-                {
-                    break;
-                }
-                builder.Append(symbol);
-            }
-            return builder.ToString();
-        }
-
         public void Sort()
         {
             using (fstream = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
@@ -54,16 +39,31 @@ namespace task_DEV_5
                     }
                 }
                 while (needSorting);
-            } 
+            }
+        }
+
+        private string ReadLine()
+        {
+            StringBuilder builder = new StringBuilder();
+            char symbol;
+            while ((symbol = (char)fstream.ReadByte()) != '\n' && fstream.Length != fstream.Position)
+            {
+                builder.Append(symbol);
+            }
+            return builder.ToString();
         }
 
         private void WriteSortedRows(string firstString, string secondString)
         {
-            byte[] firstLineByte = Encoding.Default.GetBytes(firstString + '\n');
-            byte[] secondLineByte = Encoding.Default.GetBytes(secondString + '\n');
-            fstream.Seek(-(firstLineByte.Length + secondLineByte.Length), SeekOrigin.Current);
-            fstream.Write(secondLineByte, 0, secondLineByte.Length);
-            fstream.Write(firstLineByte, 0, firstLineByte.Length);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(secondString);
+            stringBuilder.Append('\n');
+            stringBuilder.Append(firstString);
+            stringBuilder.Append('\n');
+            string lines = stringBuilder.ToString();
+            byte[] linesByte = Encoding.Default.GetBytes(lines);
+            fstream.Seek(-(linesByte.Length), SeekOrigin.Current);
+            fstream.Write(linesByte, 0, linesByte.Length);
         }
     }
 }

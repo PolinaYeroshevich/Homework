@@ -7,7 +7,7 @@ namespace task_DEV_5
     class BubbleSorter
     {
         private string path;
-        public FileStream fstream;
+        private FileStream fstream;
 
         public BubbleSorter(string path)
         {
@@ -60,8 +60,7 @@ namespace task_DEV_5
             stringBuilder.Append('\n');
             stringBuilder.Append(firstString);
             stringBuilder.Append('\n');
-            string lines = stringBuilder.ToString();
-            byte[] linesByte = Encoding.Default.GetBytes(lines);
+            byte[] linesByte = Encoding.Default.GetBytes(stringBuilder.ToString()) ;
             fstream.Seek(-(linesByte.Length), SeekOrigin.Current);
             fstream.Write(linesByte, 0, linesByte.Length);
         }

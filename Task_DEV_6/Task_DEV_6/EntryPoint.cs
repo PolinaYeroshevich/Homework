@@ -8,22 +8,31 @@ namespace Task_DEV_6
         {
             try
             {
-                CustomStack customStack = new CustomStack();
-                int capasity = customStack.Capasity();
-                int count = customStack.Count();
-                customStack.Push(1);
-                customStack.Push(7);
-                customStack.Push(8);
-                bool isEmpty = customStack.isEmpty();
-                count = customStack.Count();
-                int number = customStack.Pop();
-                number = customStack.Pop();
-                number = customStack.Pop();
-                count = customStack.Count();
+                StackArray stackArray = new StackArray();
+                int capacity = stackArray.Capacity();
+                int count = stackArray.Count();
+                stackArray.Push(1);
+                stackArray.Push(7);
+                stackArray.Push(8);
+                stackArray.Push(1);
+                stackArray.Push(7);
+                stackArray.Push(8);
+                stackArray.Push(1);
+                stackArray.Push(7);
+                stackArray.Push(8);
+                stackArray.Push(1);
+                stackArray.Push(7);
+                stackArray.Push(8);
+                bool isEmpty = stackArray.isEmpty();
+                count = stackArray.Count();
+                int number = stackArray.Pop();
+                number = stackArray.Pop();
+                number = stackArray.Pop();
+                count = stackArray.Count();
             }
-            catch (IndexOutOfRangeException)
+            catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine("There are no elements on the stack.");
+                Console.WriteLine(ex.Message);
             }
         }
     }

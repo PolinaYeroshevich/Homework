@@ -30,7 +30,7 @@ namespace Task_DEV_6
             return count;
         }
 
-        public bool isEmpty()
+        public bool IsEmpty()
         {
             if (count != 0)
             {
@@ -41,7 +41,7 @@ namespace Task_DEV_6
 
         public int Pop()
         {
-            if (isEmpty())
+            if (IsEmpty())
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
@@ -64,12 +64,12 @@ namespace Task_DEV_6
 
         private void Resize(int size)
         {
-            int[] newElements = new int[size];
+            int[] newArray = new int[size];
             for (int i = 0; i < elements.Length; i++)
             {
-                newElements[i] = elements[i];
+                newArray[i] = elements[i];
             }
-            elements = newElements;
+            elements = newArray;
         }       
     }
 }

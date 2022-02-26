@@ -61,7 +61,6 @@ namespace Task_DEV_6
             elements[count++] = element;
         }
 
-
         private void Resize(int size)
         {
             int[] newArray = new int[size];

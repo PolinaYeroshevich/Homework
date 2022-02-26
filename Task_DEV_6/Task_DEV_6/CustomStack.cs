@@ -4,20 +4,20 @@ namespace Task_DEV_6
 {
     class CustomStack
     {
-        private const int LENGTH = 10;
-        private const string EXCEPTION_MESSAGE = "There are no elements on the stack.";
+        private const int INIT_LENGTH = 10;
+        private const string INDEX_OUT_OF_RANGE_EXEPTION_MESSAGE = "There are no elements on the stack.";
 
         private int[] elements;
         private int count;
 
         public CustomStack()
         {
-            elements = new int[LENGTH];
+            elements = new int[INIT_LENGTH];
         }
 
-        public CustomStack(int capacity)
+        public CustomStack(int length)
         {
-            elements = new int[capacity];
+            elements = new int[length];
         }
 
         public int Capacity()
@@ -32,25 +32,23 @@ namespace Task_DEV_6
 
         public bool isEmpty()
         {
-            if (count == 0)
+            if (count != 0)
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         public int Pop()
         {
-            ThrowExeption();
-            if (count == elements.Length / 2.0)
+            if (count == 0)
+            {
+                throw new IndexOutOfRangeException(INDEX_OUT_OF_RANGE_EXEPTION_MESSAGE);
+            }
+            else if (count <= elements.Length / 2.0)
             {
                 int size = elements.Length / 2;
-                int[] newNumbers = new int[size];
-                for (int i = 0; i < elements.Length; i++)
-                {
-                    newNumbers[i] = elements[i];
-                }
-                elements = newNumbers;
+                Resize(size);
             }
             return elements[--count];
         }
@@ -60,22 +58,20 @@ namespace Task_DEV_6
             if (count == elements.Length)
             {
                 int size = elements.Length + elements.Length;
-                int[] newElements = new int[size];
-                for (int i = 0; i < elements.Length; i++)
-                {
-                    newElements[i] = elements[i];
-                }
-                elements = newElements;
+                Resize(size);
             }
             elements[count++] = element;
         }
 
-        private void ThrowExeption()
+
+        private void Resize(int size)
         {
-            if (count == 0)
+            int[] newNumbers = new int[size];
+            for (int i = 0; i < elements.Length; i++)
             {
-                throw new IndexOutOfRangeException(EXCEPTION_MESSAGE);
+                newNumbers[i] = elements[i];
             }
-        }
+            elements = newNumbers;
+        }       
     }
 }

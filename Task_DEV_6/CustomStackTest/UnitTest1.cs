@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System;
-namespace Task_DEV_7
+
+namespace Task_DEV_6
 {
     public class Tests
     {
@@ -38,7 +39,7 @@ namespace Task_DEV_7
         {
             CustomStack custom = new CustomStack();
             custom.Push(3);
-            custom.Push(7);            
+            custom.Push(7);
             int element = custom.Pop();
             int count = custom.Count();
             Assert.AreEqual(count, 1);
@@ -57,7 +58,7 @@ namespace Task_DEV_7
             custom.Push(7);
             custom.Push(8);
             custom.Push(3);
-            custom.Push(1);            
+            custom.Push(1);
             int pop = custom.Pop();
             int capasity = custom.Capacity();
             Assert.AreEqual(capasity, 10);

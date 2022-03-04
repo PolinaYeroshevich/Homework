@@ -23,7 +23,7 @@ namespace Task_DEV_6
                 customStack.Push(1);
                 customStack.Push(7);
                 customStack.Push(8);
-                bool isEmpty = customStack.isEmpty();
+                bool isEmpty = customStack.IsEmpty();
                 count = customStack.Count();
                 int number = customStack.Pop();
                 number = customStack.Pop();

@@ -2,26 +2,26 @@
 
 namespace Task_DEV_6
 {
-    public class CustomStack
+    /// <summary>
+    /// The class is an array-based stack 
+    /// that works like "Last In First Out".
+    /// </summary>
+    public class CustomStack<T>
     {
-        /// <summary>
-        /// The class is an array-based stack 
-        /// that works like "Last In First Out".
-        /// </summary>
         private const int INIT_LENGTH = 10;
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements on the stack.";
 
-        private int[] elements;
+        private T[] elements;
         private int count;
 
         public CustomStack()
         {
-            elements = new int[INIT_LENGTH];
+            elements = new T[INIT_LENGTH];
         }
 
         public CustomStack(int length)
         {
-            elements = new int[length];
+            elements = new T[length];
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Task_DEV_6
         /// <summary>
         /// The method returns the actual number of elements on the stack.
         /// </summary>
-        /// <returns>Returns a count.</returns>
+        /// <returns>Returns the actual number of elements on the stack.</returns>
         public int Count()
         {
             return count;
@@ -45,7 +45,8 @@ namespace Task_DEV_6
         /// <summary>
         /// The method checks if the array is empty or not.
         /// </summary>
-        /// <returns>Returns True or False.</returns>
+        /// <returns>Returns true if the count is empty,
+        /// false if there are elements in the count.</returns>
         public bool IsEmpty()
         {
             if (count != 0)
@@ -60,13 +61,13 @@ namespace Task_DEV_6
         /// if there are no elements, throw an exception.
         /// </summary>
         /// <returns> Returns the element from the top of the stack.</returns>
-        public int Pop()
+        public T Pop()
         {
-            if (count == 0)
+            if (IsEmpty())
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
-            else if (count <= elements.Length / 2.0)
+            else if (count <= elements.Length / 2.0 && count > 0)
             {
                 Resize(elements.Length / 2);
             }
@@ -77,7 +78,7 @@ namespace Task_DEV_6
         /// The method adds a new element to the stack.
         /// </summary>
         /// <param name="element">The element added to the stack.</param>
-        public void Push(int element)
+        public void Push(T element)
         {
             if (count == elements.Length)
             {
@@ -92,8 +93,8 @@ namespace Task_DEV_6
         /// <param name="size">New array size.</param>
         private void Resize(int size)
         {
-            int[] newArray = new int[size];
-            for (int i = 0; i < elements.Length; i++)
+            T[] newArray = new T[size];
+            for (int i = 0; i < count; i++)
             {
                 newArray[i] = elements[i];
             }

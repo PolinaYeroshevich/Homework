@@ -8,27 +8,28 @@ namespace Task_DEV_6
         {
             try
             {
-                CustomStack customStack = new CustomStack();
+                CustomStack<int> customStack = new CustomStack<int>();
                 int capacity = customStack.Capacity();
                 int count = customStack.Count();
                 customStack.Push(1);
                 customStack.Push(7);
                 customStack.Push(8);
-                customStack.Push(1);
-                customStack.Push(7);
-                customStack.Push(8);
-                customStack.Push(1);
-                customStack.Push(7);
-                customStack.Push(8);
-                customStack.Push(1);
-                customStack.Push(7);
-                customStack.Push(8);
-                bool isEmpty = customStack.IsEmpty();
+                capacity = customStack.Capacity();
                 count = customStack.Count();
                 int number = customStack.Pop();
-                number = customStack.Pop();
-                number = customStack.Pop();
                 count = customStack.Count();
+
+                CustomStack<string> custom = new CustomStack<string>();
+                capacity = custom.Capacity();
+                count = custom.Count();
+                custom.Push("abc");
+                custom.Push("cbe");
+                custom.Push("bcd");
+                capacity = custom.Capacity();
+                count = custom.Count();
+                string line = custom.Pop(); ;
+                capacity = custom.Capacity();
+                count = custom.Count();
             }
             catch (IndexOutOfRangeException ex)
             {

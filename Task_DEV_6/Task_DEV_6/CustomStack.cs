@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task_DEV_6
+namespace CustomStack
 {
     /// <summary>
     /// The class is an array-based stack 

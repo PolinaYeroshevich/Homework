@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Task_DEV_6\Task_DEV_6.csproj" />
+    <ProjectReference Include="..\Task_DEV_6\CustomStack.csproj" />
   </ItemGroup>
 
 </Project>

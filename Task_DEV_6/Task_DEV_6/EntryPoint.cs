@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task_DEV_6
+namespace CustomStack
 {
     class EntryPoint
     {

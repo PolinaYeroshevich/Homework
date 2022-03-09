@@ -1,7 +1,8 @@
 using NUnit.Framework;
 using System;
+using CustomStack;
 
-namespace Task_DEV_6
+namespace CustomStackTest
 {
     public class Tests
     {

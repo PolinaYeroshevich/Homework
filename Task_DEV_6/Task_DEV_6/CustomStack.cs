@@ -12,34 +12,30 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements on the stack.";
 
         private T[] elements;
-        private int count;
+        public int capacity
+        {
+            get
+            {
+                return elements.Length;
+            }
+        }
+        public int count { get; private set; }
 
+        /// <summary>
+        /// The constructor allocates memory for 10 elements.
+        /// </summary>
         public CustomStack()
         {
             elements = new T[INIT_LENGTH];
         }
 
+        /// <summary>
+        /// The constructor allocates memory for the stack specified in the variable length.
+        /// </summary>
+        /// <param name="length">Stack length.</param>
         public CustomStack(int length)
         {
             elements = new T[length];
-        }
-
-        /// <summary>
-        /// The method returns the current stack capacity.
-        /// </summary>
-        /// /// <returns>Returns a array length.</returns>
-        public int Capacity()
-        {
-            return elements.Length;
-        }
-
-        /// <summary>
-        /// The method returns the actual number of elements on the stack.
-        /// </summary>
-        /// <returns>Returns the actual number of elements on the stack.</returns>
-        public int Count()
-        {
-            return count;
         }
 
         /// <summary>
@@ -60,6 +56,7 @@ namespace CustomStack
         /// The method retrieves an element from the top, 
         /// if there are no elements, throw an exception.
         /// </summary>
+        /// /// <exception cref="IndexOutOfRangeException">Throws an exception if the stack is empty.</exception>
         /// <returns> Returns the element from the top of the stack.</returns>
         public T Pop()
         {
@@ -88,9 +85,9 @@ namespace CustomStack
         }
 
         /// <summary>
-        /// Method that creates a new array and copies the old one into it.
+        /// The method dynamically resizes the stack.
         /// </summary>
-        /// <param name="size">New array size.</param>
+        /// <param name="size">New stack size.</param>
         private void Resize(int size)
         {
             T[] newArray = new T[size];

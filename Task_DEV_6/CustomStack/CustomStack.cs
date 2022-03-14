@@ -12,6 +12,8 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements on the stack.";
 
         private T[] elements;
+        private int сount;
+
         public int Capacity
         {
             get
@@ -19,8 +21,7 @@ namespace CustomStack
                 return elements.Length;
             }
         }
-        private int сount;
-        public int Сount
+        public int Count
         {
             get
             {
@@ -29,7 +30,7 @@ namespace CustomStack
         }
 
         /// <summary>
-        /// The constructor allocates memory for 10 elements.
+        /// The constructor allocates memory for the stack for 10 elements.
         /// </summary>
         public CustomStack()
         {
@@ -46,13 +47,13 @@ namespace CustomStack
         }
 
         /// <summary>
-        /// The method checks if the array is empty or not.
+        /// The method checks if the stack is empty or not.
         /// </summary>
-        /// <returns>Returns true if the count is empty,
-        /// false if there are elements in the count.</returns>
+        /// <returns>Returns true if the stack is empty,
+        /// false if there are elements in the stack.</returns>
         public bool IsEmpty()
         {
-            if (Сount != 0)
+            if (Count != 0)
             {
                 return false;
             }
@@ -63,7 +64,7 @@ namespace CustomStack
         /// The method retrieves an element from the top, 
         /// if there are no elements, throw an exception.
         /// </summary>
-        /// /// <exception cref="IndexOutOfRangeException">Throws an exception if the stack is empty.</exception>
+        /// <exception cref="IndexOutOfRangeException">Throws an exception if the stack is empty.</exception>
         /// <returns> Returns the element from the top of the stack.</returns>
         public T Pop()
         {
@@ -71,7 +72,7 @@ namespace CustomStack
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
-            else if (Сount <= elements.Length / 2.0 && Сount > 0)
+            else if (Count <= elements.Length / 2.0 && Count > 0)
             {
                 Resize(elements.Length / 2);
             }
@@ -84,7 +85,7 @@ namespace CustomStack
         /// <param name="element">The element added to the stack.</param>
         public void Push(T element)
         {
-            if (Сount == elements.Length)
+            if (Count == elements.Length)
             {
                 Resize(elements.Length * 2);
             }
@@ -98,7 +99,7 @@ namespace CustomStack
         private void Resize(int size)
         {
             T[] newArray = new T[size];
-            for (int i = 0; i < Сount; i++)
+            for (int i = 0; i < Count; i++)
             {
                 newArray[i] = elements[i];
             }

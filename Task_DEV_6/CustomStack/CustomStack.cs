@@ -12,14 +12,21 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements on the stack.";
 
         private T[] elements;
-        public int capacity
+        public int Capacity
         {
             get
             {
                 return elements.Length;
             }
         }
-        public int count { get; private set; }
+        private int сount;
+        public int Сount
+        {
+            get
+            {
+                return сount;
+            }
+        }
 
         /// <summary>
         /// The constructor allocates memory for 10 elements.
@@ -45,7 +52,7 @@ namespace CustomStack
         /// false if there are elements in the count.</returns>
         public bool IsEmpty()
         {
-            if (count != 0)
+            if (Сount != 0)
             {
                 return false;
             }
@@ -64,11 +71,11 @@ namespace CustomStack
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
-            else if (count <= elements.Length / 2.0 && count > 0)
+            else if (Сount <= elements.Length / 2.0 && Сount > 0)
             {
                 Resize(elements.Length / 2);
             }
-            return elements[--count];
+            return elements[--сount];
         }
 
         /// <summary>
@@ -77,11 +84,11 @@ namespace CustomStack
         /// <param name="element">The element added to the stack.</param>
         public void Push(T element)
         {
-            if (count == elements.Length)
+            if (Сount == elements.Length)
             {
                 Resize(elements.Length * 2);
             }
-            elements[count++] = element;
+            elements[сount++] = element;
         }
 
         /// <summary>
@@ -91,7 +98,7 @@ namespace CustomStack
         private void Resize(int size)
         {
             T[] newArray = new T[size];
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < Сount; i++)
             {
                 newArray[i] = elements[i];
             }

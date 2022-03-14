@@ -15,11 +15,11 @@ namespace CustomStackTest
         public void PushTest<T>(T element)
         {
             CustomStack<T> stack = new CustomStack<T>();
-            int firstCapacity = stack.capacity;
-            int firstCount = stack.count;
+            int firstCapacity = stack.Capacity;
+            int firstCount = stack.Ñount;
             stack.Push(element);
-            int lastCount = stack.count;
-            int lastCapacity = stack.capacity;
+            int lastCount = stack.Ñount;
+            int lastCapacity = stack.Capacity;
             Assert.AreEqual(firstCount, 0);
             Assert.AreEqual(lastCount, 1);
             Assert.AreNotEqual(firstCount, lastCount);
@@ -32,12 +32,12 @@ namespace CustomStackTest
         public void PushResizeTest()
         {
             CustomStack<int> stack = new CustomStack<int>();
-            int firstCapasity = stack.capacity;
+            int firstCapasity = stack.Capacity;
             for (int i = 0; i < 12; i++)
             {
                 stack.Push(i);
             }
-            int lastCapasity = stack.capacity;
+            int lastCapasity = stack.Capacity;
             Assert.AreEqual(firstCapasity, 10);
             Assert.AreEqual(lastCapasity, 20);
             Assert.AreNotEqual(firstCapasity, lastCapasity);
@@ -52,11 +52,11 @@ namespace CustomStackTest
             {
                 stack.Push(i);
             }
-            int firstCapacity = stack.capacity;
+            int firstCapacity = stack.Capacity;
             int number = stack.Pop();
             number = stack.Pop();
             number = stack.Pop();
-            int lastCapacity = stack.capacity;
+            int lastCapacity = stack.Capacity;
             Assert.AreEqual(lastCapacity, 10);
             Assert.AreEqual(firstCapacity, 20);
             Assert.AreNotEqual(firstCapacity, lastCapacity);
@@ -70,9 +70,9 @@ namespace CustomStackTest
         {
             CustomStack<T> stack = new CustomStack<T>();
             stack.Push(item);
-            int firstCount = stack.count;
+            int firstCount = stack.Ñount;
             T element = stack.Pop();
-            int lastCount = stack.count;
+            int lastCount = stack.Ñount;
             Assert.AreEqual(element, item);
             Assert.AreEqual(lastCount, 0);
             Assert.AreEqual(firstCount, 1);

@@ -18,8 +18,7 @@ namespace CustomStack
                 custom.Push("abc");
                 custom.Push("cbe");
                 custom.Push("bcd");
-                string line = custom.Pop(); ;
-
+                string line = custom.Pop();
             }
             catch (IndexOutOfRangeException ex)
             {

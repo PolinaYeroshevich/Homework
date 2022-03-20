@@ -26,17 +26,17 @@ namespace CustomStackTest
         [TestCase("abc")]
         [TestCase(5.2)]
         [TestCase('o')]
-        public void PopTest<T>(T item)
+        public void PopTest<T>(T element)
         {
             CustomStack<T> stack = new CustomStack<T>();
-            stack.Push(item);
-            int firstCount = stack.Count;
-            T element = stack.Pop();
+            stack.Push(element);
+            int startCount = stack.Count;
+            T pop = stack.Pop();
             int lastCount = stack.Count;
-            Assert.AreEqual(element, item);
+            Assert.AreEqual(pop, element);
             Assert.AreEqual(lastCount, 0);
-            Assert.AreEqual(firstCount, 1);
-            Assert.AreNotEqual(firstCount, lastCount);
+            Assert.AreEqual(startCount, 1);
+            Assert.AreNotEqual(startCount, lastCount);
         }
 
         [Test]
@@ -56,14 +56,14 @@ namespace CustomStackTest
             {
                 stack.Push(i);
             }
-            int firstCapacity = stack.Capacity;
+            int startCapacity = stack.Capacity;
             int number = stack.Pop();
             number = stack.Pop();
             number = stack.Pop();
-            int lastCapacity = stack.Capacity;
-            Assert.AreEqual(lastCapacity, 10);
-            Assert.AreEqual(firstCapacity, 20);
-            Assert.AreNotEqual(firstCapacity, lastCapacity);
+            int endCapasity = stack.Capacity;
+            Assert.AreEqual(endCapasity, 10);
+            Assert.AreEqual(startCapacity, 20);
+            Assert.AreNotEqual(startCapacity, endCapasity);
         }
 
         [TestCase(5)]
@@ -72,33 +72,33 @@ namespace CustomStackTest
         [TestCase('o')]
         public void PushTest<T>(T element)
         {
-            CustomStack<T> stack = new CustomStack<T>();
-            int firstCapacity = stack.Capacity;
-            int firstCount = stack.Count;
+            CustomStack<T> stack = new CustomStack<T>(15);
+            int startCapacity = stack.Capacity;
+            int startCount = stack.Count;
             stack.Push(element);
-            int lastCount = stack.Count;
-            int lastCapacity = stack.Capacity;
-            Assert.AreEqual(firstCount, 0);
-            Assert.AreEqual(lastCount, 1);
-            Assert.AreNotEqual(firstCount, lastCount);
-            Assert.AreEqual(firstCapacity, 10);
-            Assert.AreEqual(lastCapacity, 10);
-            Assert.AreEqual(lastCapacity, firstCapacity);
+            int endCount = stack.Count;
+            int endCapasity = stack.Capacity;
+            Assert.AreEqual(startCount, 0);
+            Assert.AreEqual(endCount, 1);
+            Assert.AreNotEqual(startCount, endCount);
+            Assert.AreEqual(startCapacity, 15);
+            Assert.AreEqual(endCapasity, 15);
+            Assert.AreEqual(startCapacity, endCapasity);
         }
 
         [Test]
         public void PushResizeTest()
         {
             CustomStack<int> stack = new CustomStack<int>();
-            int firstCapasity = stack.Capacity;
+            int startCapacity = stack.Capacity;
             for (int i = 0; i < 12; i++)
             {
                 stack.Push(i);
             }
-            int lastCapasity = stack.Capacity;
-            Assert.AreEqual(firstCapasity, 10);
-            Assert.AreEqual(lastCapasity, 20);
-            Assert.AreNotEqual(firstCapasity, lastCapasity);
+            int endCapasity = stack.Capacity;
+            Assert.AreEqual(startCapacity, 10);
+            Assert.AreEqual(endCapasity, 20);
+            Assert.AreNotEqual(startCapacity, endCapasity);
         }
     }
 }

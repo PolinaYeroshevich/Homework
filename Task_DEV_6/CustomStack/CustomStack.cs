@@ -12,7 +12,7 @@ namespace CustomStack
         private const string INVALID_RANGE_ERROR_MESSAGE = "There are no elements on the stack.";
 
         private T[] elements;
-        private int сount;
+        private int count;
 
         public int Capacity
         {
@@ -21,11 +21,12 @@ namespace CustomStack
                 return elements.Length;
             }
         }
+
         public int Count
         {
             get
             {
-                return сount;
+                return count;
             }
         }
 
@@ -53,11 +54,7 @@ namespace CustomStack
         /// false if there are elements in the stack.</returns>
         public bool IsEmpty()
         {
-            if (Count != 0)
-            {
-                return false;
-            }
-            return true;
+            return count == 0;
         }
 
         /// <summary>
@@ -72,24 +69,24 @@ namespace CustomStack
             {
                 throw new IndexOutOfRangeException(INVALID_RANGE_ERROR_MESSAGE);
             }
-            else if (Count <= elements.Length / 2.0 && Count > 0)
+            else if (count <= elements.Length / 2.0 && count > 0)
             {
                 Resize(elements.Length / 2);
             }
-            return elements[--сount];
+            return elements[--count];
         }
 
         /// <summary>
         /// The method adds a new element to the stack.
         /// </summary>
-        /// <param name="element">The element added to the stack.</param>
+        /// <param name="element">The element need to add to the stack.</param>
         public void Push(T element)
         {
-            if (Count == elements.Length)
+            if (count == elements.Length)
             {
                 Resize(elements.Length * 2);
             }
-            elements[сount++] = element;
+            elements[count++] = element;
         }
 
         /// <summary>
